@@ -1,0 +1,9 @@
+
+Os passos básicos par salvar um projeto no GitHub são:
+
+git init
+git add.
+git commit -m "descrição das atualizações do projeto"
+git branch -M main
+git remote add origin git@github.com:seuusuario/seurepositorio.git
+git push -u origin main

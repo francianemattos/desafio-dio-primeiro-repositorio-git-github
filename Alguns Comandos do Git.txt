@@ -1,0 +1,62 @@
+
+Git init
+Este comando serve para começar um projeto que ainda não seja um repositório (ou repo), o Git Init costuma ser o primeiro comando que você vai usar, pois vai precisar de um subdiretório .git na raiz do seu projeto. Esse comando cria um repositório vazio ou transforma uma pasta que você já tem, e que não está com controle de versão, em um repositório.
+
+Git add.
+Este comando adiciona os arquivos solicitados ao ambiente de stage, é uma forma de dizer para o git que você deseja que as modificações daquele arquivo sejam gravadas na próxima remessa. O comando  git add .  representa todos os arquivos na pasta.
+
+Git commit
+Este comando faz a gravação em si das modificações, desta forma é criado um snapshot do estado atual do projeto. Uma forma muito usada é o git commit -m “descrição das atualizações do projeto” onde o -m é uma flag que aponta para a mensagem de descrição.
+
+Git branch
+O comando git branch permite criar, listar, renomear e excluir ramificações. Ele não permite alternar entre as ramificações ou reunir um histórico bifurcado de novo. Por esse motivo, o comando git branch é muito integrado com os comandos git checkout e git merge .
+Criando uma nova branch:
+git branch <nome-da-branch>
+Este comando criará uma branch local. Para upar a nova branch para o repositório remoto, você precisa usar o seguinte comando:
+git push -u <remote> <nome-da-branch>
+Para ver as ramificações:
+git branch 
+ou
+git branch --list
+Deletando uma branch:
+git branch -d <nome-da-branch>
+
+Git remote
+O comando git remote permite criar, ver e excluir conexões com outros repositórios. As conexões remotas são mais parecidas com marcadores em vez de links diretos para outros repositórios. Em vez de dar acesso em tempo real a outro repositório, eles funcionam como nomes convenientes que podem ser usados para fazer referência a uma URL não tão conveniente.
+
+Git push
+Este comando serve para subir as modificações para o repositório remoto,e se já estiver tudo devidamente configurado, os arquivos serão salvos no repositório remoto correspondente ao seu repositório local!
+
+Git status
+Este comando permite ver quais arquivos estão sendo “rastreados” pelo git e quais modificações já foram enviadas para o stage. É bem útil para quando se tem dúvidas sobre o que está sendo enviado
+
+Git checkout
+É o comando utilizado para trocar de branch passando o nome da branch destino no final do comando. Caso a flag -b seja colocada após o “checkout” é possível criar a branch em questão e já trocar para esta imediatamente.
+
+Git clone
+O Git clone é um comando para baixar o código-fonte existente de um repositório remoto (como o Github, por exemplo).
+Existem algumas maneiras de baixar o código-fonte, uma delas é com o modo https:
+git clone <https://url-do-link>
+Ao clonar um repositório, o código é copiado para a o seu computador e continua linkado ao original.
+Para desvincular a sua cópia do original, rode o comando abaixo:
+git remote rm origin
+
+Git pull
+O comando git pull é usado para obter atualizações do repositório remoto. O comando de pull depende do referencial de onde ele foi feito, ou seja, um git pull feito da sua máquina vai puxar informações do repositório original para ela.
+Mas um git pull feito a partir do repositório original vai puxar as informações da sua máquina. Percebe?
+Este comando é uma combinação de git fetch (baixa as alterações do repositório remoto mas não mescla elas com o seu) e git merge (que mescla tudo junto), o que significa que, quando usamos o git pull, ele recebe as atualizações do repositório remoto (git fetch) e aplica imediatamente as alterações mais recentes no seu local (git merge).
+git pull <remote>
+
+Git revert
+Existem várias maneiras de desfazer as alterações local ou remotamente (dependendo da necessidade), mas devemos usar esses comandos com cuidado para evitar problemas.
+Uma maneira segura de desfazer os commits é usando git revert.
+git revert 'número do hash'
+O número do hash pode ser conseguido pelo comando:
+git log -- oneline
+
+
+Git merge
+Quando você conclui o desenvolvimento em sua branch e tudo funciona bem, sem conflitos, a etapa final é mesclar as branches, isso é feito com o comando git merge.
+Como falamos no tópico sobre git pull, esse comando vai mesclar, no seu repositório local, todas as alterações feitas.
+git merge <nome-da-branch>
+
